@@ -1,0 +1,15 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace models.Entries
+{
+    public class Entry : BaseModel
+    {
+        public DateTime? Date { get; set; } = default;
+        public int EntryType { get; set; } = 0;
+        public int Category { get; set; } = 0;
+        public string Description { get; set; } = string.Empty;
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
+        public decimal Value { get; set; } = 0.00m;
+        public string Observations { get; set; } = string.Empty;
+    }
+}

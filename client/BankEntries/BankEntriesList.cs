@@ -26,7 +26,7 @@ namespace client.Records
 
         private void ReloadData()
         {
-            var list = Controller.Records.GetList(null, out _);
+            var list = Controller.BankEntries.GetList(null, out _);
             if (list is not null) records = list;
             Filter();
         }
@@ -76,13 +76,13 @@ namespace client.Records
             ReloadData();
             RecordsDatagrid.DataSource = recordsBs;
             
-            var categoryList = Controller.Records.Categories.GetList(null, true, out _);
+            var categoryList = Controller.BankEntries.Categories.GetList(null, true, out _);
             SearchCategoryBox.DataSource = categoryList;
             EntryCategoryTypeBox.DataSource = categoryList;
             SearchCategoryBox.DisplayMember = EntryCategoryTypeBox.DisplayMember = "Name";
             SearchCategoryBox.ValueMember = EntryCategoryTypeBox.ValueMember = "Id";
 
-            var entryTypeList = Controller.Resources.EntryTypes(true);
+            var entryTypeList = Controller.BankEntries.Resources.EntryTypes(true);
             SearchEntryTypeBox.DataSource = entryTypeList;
             EntryEntryTypeBox.DataSource = entryTypeList;
             SearchEntryTypeBox.DisplayMember = EntryEntryTypeBox.DisplayMember = "Name";
@@ -167,7 +167,7 @@ namespace client.Records
 
             var item = RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry;
 
-            if(!Controller.Records.DeleteItem(item!.Id, out var error))
+            if(!Controller.BankEntries.DeleteItem(item!.Id, out var error))
             {
                 MessageBox.Show(error);
                 return;
@@ -190,7 +190,7 @@ namespace client.Records
         private void DetailSaveButton_Click(object sender, EventArgs e)
         {
             var item = RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry;
-            if(!Controller.Records.Save(item!, out string error))
+            if(!Controller.BankEntries.Save(item!, out string error))
             {
                 MessageBox.Show(error);
                 return;

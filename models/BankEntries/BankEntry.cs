@@ -4,6 +4,10 @@ namespace models.BankEntries
 {
     public class BankEntry : BaseModel
     {
+        public BankEntry()
+        {
+            
+        }
         public BankEntry(DateTime date, int type, string description, decimal value) : base()
         {
             Date = date;

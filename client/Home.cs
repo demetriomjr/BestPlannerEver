@@ -13,9 +13,9 @@ namespace client
 
         private void Home_Load(object sender, EventArgs e)
         {
-            controls.Add(nameof(RecordsList), new RecordsList());
+            controls.Add(nameof(BankEntriesList), new BankEntriesList());
 
-            foreach(var control in controls.Values)
+            foreach (var control in controls.Values)
             {
                 control.BackColor = SystemColors.Control;
                 control.Dock = DockStyle.Fill;
@@ -29,7 +29,6 @@ namespace client
             control.Visible = !control.Visible;
             ContainerPanel.Controls.Add(control);
             control.Visible = !control.Visible;
-
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
@@ -41,10 +40,9 @@ namespace client
         {
 
         }
-
-        private void RecordsButton_Click(object sender, EventArgs e)
+        private void BankEntriesButton_Click(object sender, EventArgs e)
         {
-            OpenControl(controls["RecordsList"]);
+            OpenControl(controls[nameof(BankEntriesList)]);
         }
     }
 }

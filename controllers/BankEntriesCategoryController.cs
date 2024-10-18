@@ -1,6 +1,8 @@
-﻿namespace controllers
+﻿using models.BankEntries;
+
+namespace controllers
 {
-    public class RecordsCategoryController
+    public class BankEntriesCategoryController
     {
         public List<EntryCategory> GetList(Func<EntryCategory, bool>? predicate, bool AllOption, out string error)
         {

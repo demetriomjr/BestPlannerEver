@@ -118,32 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="exportItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exportItemIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exitIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exitIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="closeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\closeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="recordsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\recordsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="inportItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\inportItemIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nextPageIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nextPageIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="newItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="editItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clearFiltersIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clearFiltersIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settingsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settingsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="deleteItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\deleteItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="closeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\closeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="saveItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,7 +139,40 @@
   <data name="undoItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undoItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="editItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\editItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exportItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exportItemIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exitIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="importItemIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\importItemIcon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nextPageIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nextPageIcon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bankEntriesIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bankEntriesIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exportItemIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exportItemIcon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settingsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deleteItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteItemIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inportItemIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inportItemIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="previousPageIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\previousPageIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="previousPageIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\previousPageIcon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

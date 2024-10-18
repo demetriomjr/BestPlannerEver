@@ -1,4 +1,4 @@
-﻿namespace models.Entries
+﻿namespace models.BankEntries
 {
     public class EntryType
     {
@@ -7,7 +7,7 @@
 
         public EntryType()
         {
-            
+
         }
 
         public EntryType(int id, string name) : base()

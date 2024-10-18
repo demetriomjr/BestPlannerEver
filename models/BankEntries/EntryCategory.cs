@@ -1,4 +1,4 @@
-﻿namespace models.Entries
+﻿namespace models.BankEntries
 {
     public class EntryCategory
     {
@@ -7,7 +7,7 @@
 
         public EntryCategory()
         {
-            
+
         }
 
         public EntryCategory(int id, string name) : base()

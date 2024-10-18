@@ -1,9 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace models.Entries
+namespace models.BankEntries
 {
-    public class Entry : BaseModel
+    public class BankEntry : BaseModel
     {
+        public BankEntry(DateTime date, int type, string description, decimal value) : base()
+        {
+            Date = date;
+            EntryType = type;
+            Description = description;
+            Value = value;
+        }
+
         public DateTime? Date { get; set; } = default;
         public int EntryType { get; set; } = 0;
         public int Category { get; set; } = 0;

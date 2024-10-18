@@ -1,8 +1,8 @@
-﻿using models.Entries;
+﻿using models.BankEntries;
 
 namespace controllers
 {
-    public class ResourceController
+    public class BankEntriesResourceController
     {
         public List<EntryType> EntryTypes(bool AllOption = false)
         {

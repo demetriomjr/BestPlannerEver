@@ -1,6 +1,6 @@
 ﻿namespace client.Records
 {
-    partial class RecordsList
+    partial class BankEntriesList
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,21 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SearchGroupBox = new GroupBox();
-            panel11 = new Panel();
-            ClearFiltersButton = new Button();
-            SearchCategoryBox = new ComboBox();
-            label11 = new Label();
-            SearchEntryTypeBox = new ComboBox();
-            label9 = new Label();
-            panel10 = new Panel();
-            label5 = new Label();
-            SearchFromDateBox = new DateTimePicker();
-            label8 = new Label();
-            SearchToDateBox = new DateTimePicker();
-            SearchBox = new TextBox();
-            label7 = new Label();
             groupBox2 = new GroupBox();
+            ExportButton = new Button();
+            panel16 = new Panel();
+            ImportButton = new Button();
+            panel15 = new Panel();
             DeleteRecordButton = new Button();
             panel12 = new Panel();
             EditRecordButton = new Button();
@@ -79,9 +69,22 @@
             label2 = new Label();
             EntryDateBox = new DateTimePicker();
             label1 = new Label();
-            SearchGroupBox.SuspendLayout();
-            panel11.SuspendLayout();
-            panel10.SuspendLayout();
+            SearchGroupBox = new GroupBox();
+            panel11 = new Panel();
+            panel13 = new Panel();
+            ClearFiltersButton = new Button();
+            SearchCategoryBox = new ComboBox();
+            label11 = new Label();
+            SearchEntryTypeBox = new ComboBox();
+            label9 = new Label();
+            panel14 = new Panel();
+            label5 = new Label();
+            SearchFromDateBox = new DateTimePicker();
+            label8 = new Label();
+            SearchToDateBox = new DateTimePicker();
+            SearchBox = new TextBox();
+            label7 = new Label();
+            panel10 = new Panel();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)RecordsDatagrid).BeginInit();
@@ -91,169 +94,18 @@
             panel6.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            SearchGroupBox.SuspendLayout();
+            panel11.SuspendLayout();
+            panel13.SuspendLayout();
+            panel14.SuspendLayout();
             SuspendLayout();
-            // 
-            // SearchGroupBox
-            // 
-            SearchGroupBox.Controls.Add(panel11);
-            SearchGroupBox.Controls.Add(panel10);
-            SearchGroupBox.Dock = DockStyle.Top;
-            SearchGroupBox.Location = new Point(15, 5);
-            SearchGroupBox.Name = "SearchGroupBox";
-            SearchGroupBox.Size = new Size(1046, 97);
-            SearchGroupBox.TabIndex = 0;
-            SearchGroupBox.TabStop = false;
-            SearchGroupBox.Text = "Pesquisa";
-            // 
-            // panel11
-            // 
-            panel11.Controls.Add(ClearFiltersButton);
-            panel11.Controls.Add(SearchCategoryBox);
-            panel11.Controls.Add(label11);
-            panel11.Controls.Add(SearchEntryTypeBox);
-            panel11.Controls.Add(label9);
-            panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(3, 43);
-            panel11.Name = "panel11";
-            panel11.Padding = new Padding(20, 5, 20, 3);
-            panel11.Size = new Size(1040, 37);
-            panel11.TabIndex = 7;
-            // 
-            // ClearFiltersButton
-            // 
-            ClearFiltersButton.Dock = DockStyle.Right;
-            ClearFiltersButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            ClearFiltersButton.Image = Properties.Resources.clearFiltersIcon;
-            ClearFiltersButton.ImageAlign = ContentAlignment.TopLeft;
-            ClearFiltersButton.Location = new Point(898, 5);
-            ClearFiltersButton.Name = "ClearFiltersButton";
-            ClearFiltersButton.Padding = new Padding(10, 0, 0, 5);
-            ClearFiltersButton.Size = new Size(122, 29);
-            ClearFiltersButton.TabIndex = 9;
-            ClearFiltersButton.Text = "Limpar Filtros";
-            ClearFiltersButton.TextAlign = ContentAlignment.BottomLeft;
-            ClearFiltersButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            ClearFiltersButton.UseVisualStyleBackColor = true;
-            ClearFiltersButton.Click += ClearFiltersButton_Click;
-            // 
-            // SearchCategoryBox
-            // 
-            SearchCategoryBox.Dock = DockStyle.Left;
-            SearchCategoryBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            SearchCategoryBox.FormattingEnabled = true;
-            SearchCategoryBox.Location = new Point(324, 5);
-            SearchCategoryBox.Name = "SearchCategoryBox";
-            SearchCategoryBox.Size = new Size(158, 23);
-            SearchCategoryBox.TabIndex = 7;
-            SearchCategoryBox.DropDownClosed += FilterAction;
-            // 
-            // label11
-            // 
-            label11.Dock = DockStyle.Left;
-            label11.Location = new Point(240, 5);
-            label11.Name = "label11";
-            label11.Size = new Size(84, 29);
-            label11.TabIndex = 6;
-            label11.Text = "Categoria";
-            label11.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // SearchEntryTypeBox
-            // 
-            SearchEntryTypeBox.Dock = DockStyle.Left;
-            SearchEntryTypeBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            SearchEntryTypeBox.FormattingEnabled = true;
-            SearchEntryTypeBox.Location = new Point(110, 5);
-            SearchEntryTypeBox.Name = "SearchEntryTypeBox";
-            SearchEntryTypeBox.Size = new Size(130, 23);
-            SearchEntryTypeBox.TabIndex = 4;
-            SearchEntryTypeBox.DropDownClosed += FilterAction;
-            // 
-            // label9
-            // 
-            label9.Dock = DockStyle.Left;
-            label9.Location = new Point(20, 5);
-            label9.Name = "label9";
-            label9.Size = new Size(90, 29);
-            label9.TabIndex = 2;
-            label9.Text = "Tipo Transação";
-            label9.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // panel10
-            // 
-            panel10.Controls.Add(label5);
-            panel10.Controls.Add(SearchFromDateBox);
-            panel10.Controls.Add(label8);
-            panel10.Controls.Add(SearchToDateBox);
-            panel10.Controls.Add(SearchBox);
-            panel10.Controls.Add(label7);
-            panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(3, 19);
-            panel10.Name = "panel10";
-            panel10.Padding = new Padding(20, 0, 20, 0);
-            panel10.Size = new Size(1040, 24);
-            panel10.TabIndex = 6;
-            // 
-            // label5
-            // 
-            label5.Dock = DockStyle.Right;
-            label5.Location = new Point(752, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(33, 24);
-            label5.TabIndex = 6;
-            label5.Text = "De";
-            label5.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // SearchFromDateBox
-            // 
-            SearchFromDateBox.Dock = DockStyle.Right;
-            SearchFromDateBox.Format = DateTimePickerFormat.Short;
-            SearchFromDateBox.Location = new Point(785, 0);
-            SearchFromDateBox.Name = "SearchFromDateBox";
-            SearchFromDateBox.Size = new Size(102, 23);
-            SearchFromDateBox.TabIndex = 5;
-            SearchFromDateBox.ValueChanged += FilterAction;
-            // 
-            // label8
-            // 
-            label8.Dock = DockStyle.Right;
-            label8.Location = new Point(887, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(31, 24);
-            label8.TabIndex = 4;
-            label8.Text = "até ";
-            label8.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // SearchToDateBox
-            // 
-            SearchToDateBox.Dock = DockStyle.Right;
-            SearchToDateBox.Format = DateTimePickerFormat.Short;
-            SearchToDateBox.Location = new Point(918, 0);
-            SearchToDateBox.Name = "SearchToDateBox";
-            SearchToDateBox.Size = new Size(102, 23);
-            SearchToDateBox.TabIndex = 3;
-            SearchToDateBox.ValueChanged += FilterAction;
-            // 
-            // SearchBox
-            // 
-            SearchBox.Dock = DockStyle.Left;
-            SearchBox.Location = new Point(110, 0);
-            SearchBox.Name = "SearchBox";
-            SearchBox.Size = new Size(642, 23);
-            SearchBox.TabIndex = 1;
-            SearchBox.TextChanged += FilterAction;
-            // 
-            // label7
-            // 
-            label7.Dock = DockStyle.Left;
-            label7.Location = new Point(20, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(90, 24);
-            label7.TabIndex = 0;
-            label7.Text = "Buscar";
-            label7.TextAlign = ContentAlignment.MiddleRight;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(ExportButton);
+            groupBox2.Controls.Add(panel16);
+            groupBox2.Controls.Add(ImportButton);
+            groupBox2.Controls.Add(panel15);
             groupBox2.Controls.Add(DeleteRecordButton);
             groupBox2.Controls.Add(panel12);
             groupBox2.Controls.Add(EditRecordButton);
@@ -261,14 +113,60 @@
             groupBox2.Controls.Add(CloseButton);
             groupBox2.Controls.Add(NewRecordButton);
             groupBox2.Dock = DockStyle.Right;
-            groupBox2.Location = new Point(906, 102);
+            groupBox2.Location = new Point(906, 129);
             groupBox2.Margin = new Padding(8, 3, 3, 3);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(10, 15, 10, 10);
-            groupBox2.Size = new Size(155, 541);
+            groupBox2.Size = new Size(155, 514);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Funções";
+            // 
+            // ExportButton
+            // 
+            ExportButton.Dock = DockStyle.Top;
+            ExportButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ExportButton.Image = Properties.Resources.exportItemIcon2;
+            ExportButton.ImageAlign = ContentAlignment.MiddleLeft;
+            ExportButton.Location = new Point(10, 183);
+            ExportButton.Name = "ExportButton";
+            ExportButton.Padding = new Padding(10, 0, 0, 0);
+            ExportButton.Size = new Size(135, 30);
+            ExportButton.TabIndex = 10;
+            ExportButton.Text = "Exportar";
+            ExportButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            ExportButton.UseVisualStyleBackColor = true;
+            // 
+            // panel16
+            // 
+            panel16.Dock = DockStyle.Top;
+            panel16.Location = new Point(10, 175);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(135, 8);
+            panel16.TabIndex = 9;
+            // 
+            // ImportButton
+            // 
+            ImportButton.Dock = DockStyle.Top;
+            ImportButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ImportButton.Image = Properties.Resources.importItemIcon2;
+            ImportButton.ImageAlign = ContentAlignment.MiddleLeft;
+            ImportButton.Location = new Point(10, 145);
+            ImportButton.Name = "ImportButton";
+            ImportButton.Padding = new Padding(10, 0, 0, 0);
+            ImportButton.Size = new Size(135, 30);
+            ImportButton.TabIndex = 8;
+            ImportButton.Text = "Importar";
+            ImportButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            ImportButton.UseVisualStyleBackColor = true;
+            // 
+            // panel15
+            // 
+            panel15.Dock = DockStyle.Top;
+            panel15.Location = new Point(10, 137);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(135, 8);
+            panel15.TabIndex = 7;
             // 
             // DeleteRecordButton
             // 
@@ -324,7 +222,7 @@
             CloseButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             CloseButton.Image = Properties.Resources.closeIcon;
             CloseButton.ImageAlign = ContentAlignment.MiddleLeft;
-            CloseButton.Location = new Point(10, 501);
+            CloseButton.Location = new Point(10, 474);
             CloseButton.Name = "CloseButton";
             CloseButton.Padding = new Padding(10, 0, 0, 0);
             CloseButton.Size = new Size(135, 30);
@@ -357,7 +255,7 @@
             groupBox3.Location = new Point(5, 6);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(5);
-            groupBox3.Size = new Size(876, 379);
+            groupBox3.Size = new Size(876, 352);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Lista";
@@ -375,7 +273,7 @@
             RecordsDatagrid.RowHeadersWidth = 5;
             RecordsDatagrid.ScrollBars = ScrollBars.Vertical;
             RecordsDatagrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            RecordsDatagrid.Size = new Size(866, 353);
+            RecordsDatagrid.Size = new Size(866, 326);
             RecordsDatagrid.TabIndex = 0;
             RecordsDatagrid.SelectionChanged += RecordsDatagrid_SelectionChanged;
             // 
@@ -418,10 +316,10 @@
             panel1.Controls.Add(DetailsGroupBox);
             panel1.Controls.Add(groupBox3);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(15, 102);
+            panel1.Location = new Point(15, 129);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(0, 0, 5, 0);
-            panel1.Size = new Size(891, 541);
+            panel1.Size = new Size(891, 514);
             panel1.TabIndex = 3;
             // 
             // DetailsGroupBox
@@ -433,7 +331,7 @@
             DetailsGroupBox.Controls.Add(panel4);
             DetailsGroupBox.Controls.Add(panel5);
             DetailsGroupBox.Controls.Add(panel3);
-            DetailsGroupBox.Location = new Point(7, 384);
+            DetailsGroupBox.Location = new Point(7, 357);
             DetailsGroupBox.Name = "DetailsGroupBox";
             DetailsGroupBox.Padding = new Padding(8, 5, 8, 5);
             DetailsGroupBox.Size = new Size(872, 157);
@@ -661,21 +559,190 @@
             label1.Text = "Data";
             label1.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // RecordsList
+            // SearchGroupBox
+            // 
+            SearchGroupBox.Controls.Add(panel11);
+            SearchGroupBox.Controls.Add(panel10);
+            SearchGroupBox.Dock = DockStyle.Top;
+            SearchGroupBox.Location = new Point(15, 5);
+            SearchGroupBox.Name = "SearchGroupBox";
+            SearchGroupBox.Size = new Size(1046, 124);
+            SearchGroupBox.TabIndex = 0;
+            SearchGroupBox.TabStop = false;
+            SearchGroupBox.Text = "Pesquisa";
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(panel13);
+            panel11.Controls.Add(panel14);
+            panel11.Dock = DockStyle.Fill;
+            panel11.Location = new Point(157, 19);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(886, 102);
+            panel11.TabIndex = 1;
+            // 
+            // panel13
+            // 
+            panel13.Controls.Add(ClearFiltersButton);
+            panel13.Controls.Add(SearchCategoryBox);
+            panel13.Controls.Add(label11);
+            panel13.Controls.Add(SearchEntryTypeBox);
+            panel13.Controls.Add(label9);
+            panel13.Dock = DockStyle.Top;
+            panel13.Location = new Point(0, 24);
+            panel13.Name = "panel13";
+            panel13.Padding = new Padding(20, 5, 20, 3);
+            panel13.Size = new Size(886, 37);
+            panel13.TabIndex = 9;
+            // 
+            // ClearFiltersButton
+            // 
+            ClearFiltersButton.Dock = DockStyle.Right;
+            ClearFiltersButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ClearFiltersButton.Image = Properties.Resources.clearFiltersIcon;
+            ClearFiltersButton.ImageAlign = ContentAlignment.TopLeft;
+            ClearFiltersButton.Location = new Point(744, 5);
+            ClearFiltersButton.Name = "ClearFiltersButton";
+            ClearFiltersButton.Padding = new Padding(10, 0, 0, 5);
+            ClearFiltersButton.Size = new Size(122, 29);
+            ClearFiltersButton.TabIndex = 9;
+            ClearFiltersButton.Text = "Limpar Filtros";
+            ClearFiltersButton.TextAlign = ContentAlignment.BottomLeft;
+            ClearFiltersButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            ClearFiltersButton.UseVisualStyleBackColor = true;
+            // 
+            // SearchCategoryBox
+            // 
+            SearchCategoryBox.Dock = DockStyle.Left;
+            SearchCategoryBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            SearchCategoryBox.FormattingEnabled = true;
+            SearchCategoryBox.Location = new Point(324, 5);
+            SearchCategoryBox.Name = "SearchCategoryBox";
+            SearchCategoryBox.Size = new Size(158, 23);
+            SearchCategoryBox.TabIndex = 7;
+            // 
+            // label11
+            // 
+            label11.Dock = DockStyle.Left;
+            label11.Location = new Point(240, 5);
+            label11.Name = "label11";
+            label11.Size = new Size(84, 29);
+            label11.TabIndex = 6;
+            label11.Text = "Categoria";
+            label11.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // SearchEntryTypeBox
+            // 
+            SearchEntryTypeBox.Dock = DockStyle.Left;
+            SearchEntryTypeBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            SearchEntryTypeBox.FormattingEnabled = true;
+            SearchEntryTypeBox.Location = new Point(110, 5);
+            SearchEntryTypeBox.Name = "SearchEntryTypeBox";
+            SearchEntryTypeBox.Size = new Size(130, 23);
+            SearchEntryTypeBox.TabIndex = 4;
+            // 
+            // label9
+            // 
+            label9.Dock = DockStyle.Left;
+            label9.Location = new Point(20, 5);
+            label9.Name = "label9";
+            label9.Size = new Size(90, 29);
+            label9.TabIndex = 2;
+            label9.Text = "Tipo Transação";
+            label9.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // panel14
+            // 
+            panel14.Controls.Add(label5);
+            panel14.Controls.Add(SearchFromDateBox);
+            panel14.Controls.Add(label8);
+            panel14.Controls.Add(SearchToDateBox);
+            panel14.Controls.Add(SearchBox);
+            panel14.Controls.Add(label7);
+            panel14.Dock = DockStyle.Top;
+            panel14.Location = new Point(0, 0);
+            panel14.Name = "panel14";
+            panel14.Padding = new Padding(20, 0, 20, 0);
+            panel14.Size = new Size(886, 24);
+            panel14.TabIndex = 8;
+            // 
+            // label5
+            // 
+            label5.Dock = DockStyle.Right;
+            label5.Location = new Point(598, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(33, 24);
+            label5.TabIndex = 6;
+            label5.Text = "De";
+            label5.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // SearchFromDateBox
+            // 
+            SearchFromDateBox.Dock = DockStyle.Right;
+            SearchFromDateBox.Format = DateTimePickerFormat.Short;
+            SearchFromDateBox.Location = new Point(631, 0);
+            SearchFromDateBox.Name = "SearchFromDateBox";
+            SearchFromDateBox.Size = new Size(102, 23);
+            SearchFromDateBox.TabIndex = 5;
+            // 
+            // label8
+            // 
+            label8.Dock = DockStyle.Right;
+            label8.Location = new Point(733, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(31, 24);
+            label8.TabIndex = 4;
+            label8.Text = "até ";
+            label8.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // SearchToDateBox
+            // 
+            SearchToDateBox.Dock = DockStyle.Right;
+            SearchToDateBox.Format = DateTimePickerFormat.Short;
+            SearchToDateBox.Location = new Point(764, 0);
+            SearchToDateBox.Name = "SearchToDateBox";
+            SearchToDateBox.Size = new Size(102, 23);
+            SearchToDateBox.TabIndex = 3;
+            // 
+            // SearchBox
+            // 
+            SearchBox.Dock = DockStyle.Left;
+            SearchBox.Location = new Point(110, 0);
+            SearchBox.Name = "SearchBox";
+            SearchBox.Size = new Size(642, 23);
+            SearchBox.TabIndex = 1;
+            // 
+            // label7
+            // 
+            label7.Dock = DockStyle.Left;
+            label7.Location = new Point(20, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(90, 24);
+            label7.TabIndex = 0;
+            label7.Text = "Buscar";
+            label7.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // panel10
+            // 
+            panel10.BackgroundImage = Properties.Resources.bankEntriesIcon;
+            panel10.BackgroundImageLayout = ImageLayout.Zoom;
+            panel10.Dock = DockStyle.Left;
+            panel10.Location = new Point(3, 19);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(154, 102);
+            panel10.TabIndex = 0;
+            // 
+            // BankEntriesList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Controls.Add(groupBox2);
             Controls.Add(SearchGroupBox);
-            Name = "RecordsList";
+            Name = "BankEntriesList";
             Padding = new Padding(15, 5, 15, 5);
             Size = new Size(1076, 648);
             Load += RecordsList_Load;
-            SearchGroupBox.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)RecordsDatagrid).EndInit();
@@ -687,12 +754,15 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
+            SearchGroupBox.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel13.ResumeLayout(false);
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private GroupBox SearchGroupBox;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private DataGridView RecordsDatagrid;
@@ -726,22 +796,29 @@
         private TextBox ObservationsBox;
         private Label label6;
         private Panel panel9;
+        private ComboBox EntryCategoryTypeBox;
+        private Label label10;
+        private Button DeleteRecordButton;
+        private Panel panel12;
+        private GroupBox SearchGroupBox;
         private Panel panel11;
+        private Panel panel13;
+        private Button ClearFiltersButton;
+        private ComboBox SearchCategoryBox;
+        private Label label11;
+        private ComboBox SearchEntryTypeBox;
         private Label label9;
-        private Panel panel10;
+        private Panel panel14;
         private Label label5;
         private DateTimePicker SearchFromDateBox;
         private Label label8;
         private DateTimePicker SearchToDateBox;
         private TextBox SearchBox;
         private Label label7;
-        private ComboBox EntryCategoryTypeBox;
-        private Label label10;
-        private ComboBox SearchCategoryBox;
-        private Label label11;
-        private ComboBox SearchEntryTypeBox;
-        private Button ClearFiltersButton;
-        private Button DeleteRecordButton;
-        private Panel panel12;
+        private Panel panel10;
+        private Button ExportButton;
+        private Panel panel16;
+        private Button ImportButton;
+        private Panel panel15;
     }
 }

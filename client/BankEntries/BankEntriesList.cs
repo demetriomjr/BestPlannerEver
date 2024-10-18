@@ -1,24 +1,27 @@
 ﻿using client.LocalControllers;
-using client.LocalModels;
 using controllers;
-using models.Entries;
-using System.Windows.Forms;
+using models.BankEntries;
 
 namespace client.Records
 {
-    public partial class RecordsList : UserControl
+    public partial class BankEntriesList : UserControl
     {
-        private BindingSource recordsBs = new(), localSettings = new()
+        private record Settings()
         {
-            DataSource = new UISettings()
-        };
-        private List<Entry> records = new();
-        private Entry originalState = null!;
+            public bool IsViewMode { get; set; } = true;
+            public bool IsSingleOrNone { get; set; } = true;
+        }
 
-        public RecordsList()
+        private Settings localSettings = new();
+        private BindingSource recordsBs = new();
+        private List<BankEntry> records = new();
+        private BankEntry originalState = null!;
+        private Control[] stateControls;
+        public BankEntriesList()
         {
             InitializeComponent();
-            string a = "";
+            stateControls = [EditRecordButton, RecordsDatagrid, SearchGroupBox, DetailsGroupBox,
+                        RecordsDatagrid, NewRecordButton, DeleteRecordButton];
         }
 
         private void ReloadData()
@@ -72,18 +75,6 @@ namespace client.Records
         {
             ReloadData();
             RecordsDatagrid.DataSource = recordsBs;
-
-            BindControl([EditRecordButton, RecordsDatagrid, SearchGroupBox, SearchGroupBox, DetailsGroupBox, RecordsDatagrid, NewRecordButton,
-                         DeleteRecordButton], localSettings, ["Enabled"], ["IsSingleOrNone", "IsViewMode"]);
-            
-            /*SearchGroupBox.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
-            DetailsGroupBox.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
-
-            RecordsDatagrid.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
-
-            NewRecordButton.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
-            EditRecordButton.DataBindings.Add("Enabled", localSettings, "IsSingleOrNone", false, DataSourceUpdateMode.OnPropertyChanged);
-            DeleteRecordButton.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);*/
             
             var categoryList = Controller.Records.Categories.GetList(null, true, out _);
             SearchCategoryBox.DataSource = categoryList;
@@ -100,12 +91,8 @@ namespace client.Records
             BindControl([EntryDateBox, EntryEntryTypeBox, EntryCategoryTypeBox, DescriptionBox,
                          ValueBox, ObservationsBox], recordsBs, ["Value", "SelectedValue", "Text"], ["Date", "EntryType", "Category",
                                                                  "Description", "Value", "Observations"]);
-            /*EntryDateBox.DataBindings.Add("Value", recordsBs, "Date");
-            EntryEntryTypeBox.DataBindings.Add("SelectedValue", recordsBs, "EntryType");
-            EntryCategoryTypeBox.DataBindings.Add("SelectedValue", recordsBs, "Category");
-            DescriptionBox.DataBindings.Add("Text", recordsBs, "Description");
-            ValueBox.DataBindings.Add("Text", recordsBs, "Value", true);
-            ObservationsBox.DataBindings.Add("Text", recordsBs, "Observations");*/
+
+            UpdateStateControls();
         }
 
         private void BindControl(Control[] controls, object datasource, string[] controlProperties, string[] objectProperties)
@@ -126,6 +113,19 @@ namespace client.Records
                         break;
                     }
                 }
+            }
+        }
+
+        private void UpdateStateControls()
+        {
+            foreach (var control in stateControls)
+            {
+                if (control.Name.Equals(EditRecordButton.Name))
+                    control.Enabled = localSettings.IsSingleOrNone;
+                else if(control.Name.Equals(DetailsGroupBox.Name))
+                    control.Enabled = !localSettings.IsViewMode;
+                else control.Enabled = localSettings.IsViewMode;
+                control.Refresh();
             }
         }
 
@@ -156,15 +156,16 @@ namespace client.Records
         private void EditRecordButton_Click(object sender, EventArgs e)
         {
             if (RecordsDatagrid.CurrentRow is null) return;
-            originalState = ((RecordsDatagrid.CurrentRow.DataBoundItem! as Entry)!.Clone() as Entry)!;
-            (localSettings.DataSource as UISettings)!.IsViewMode = true;
+            originalState = ((RecordsDatagrid.CurrentRow.DataBoundItem! as BankEntry)!.Clone() as BankEntry)!;
+            (localSettings as Settings)!.IsViewMode = true;
+            UpdateStateControls();
         }
 
         private void DeleteRecordButton_Click(object sender, EventArgs e)
         {
             if (RecordsDatagrid.RowCount is 0 || !DialogController.ConfirmDelete("Registro")) return;
 
-            var item = RecordsDatagrid.CurrentRow!.DataBoundItem as Entry;
+            var item = RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry;
 
             if(!Controller.Records.DeleteItem(item!.Id, out var error))
             {
@@ -173,34 +174,40 @@ namespace client.Records
             }
 
             records.Remove(item);
+            UpdateStateControls();
             Filter();
         }
 
         private void RecordsDatagrid_SelectionChanged(object sender, EventArgs e)
         {
-            if (localSettings.DataSource is null || (localSettings.DataSource as UISettings)!.IsViewMode) return;
+            if (localSettings is null || (localSettings as Settings)!.IsViewMode) return;
 
-            (localSettings.DataSource as UISettings)!.IsSingleOrNone = RecordsDatagrid.SelectedRows.Count > 1;
+            (localSettings as Settings)!.IsSingleOrNone = RecordsDatagrid.SelectedRows.Count > 1;
+
+            UpdateStateControls();
         }
 
         private void DetailSaveButton_Click(object sender, EventArgs e)
         {
-            var item = RecordsDatagrid.CurrentRow!.DataBoundItem as Entry;
+            var item = RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry;
             if(!Controller.Records.Save(item!, out string error))
             {
                 MessageBox.Show(error);
                 return;
             }
 
-            (localSettings.DataSource as UISettings)!.IsViewMode = false;
+            (localSettings as Settings)!.IsViewMode = false;
+            UpdateStateControls();
         }
 
         private void DetailsCancelButton_Click(object sender, EventArgs e)
         {
-            var item = (RecordsDatagrid.CurrentRow!.DataBoundItem as Entry)!;
+            if (RecordsDatagrid.CurrentRow is null) return;
+            var item = (RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry)!;
             records[records.IndexOf(item)] = originalState;
             Filter();
-            (localSettings.DataSource as UISettings)!.IsViewMode = false;
+            (localSettings as Settings)!.IsViewMode = false;
+            UpdateStateControls();
         }
     }
 }

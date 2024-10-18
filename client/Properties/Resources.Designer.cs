@@ -63,6 +63,16 @@ namespace client.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bankEntriesIcon {
+            get {
+                object obj = ResourceManager.GetObject("bankEntriesIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clearFiltersIcon {
             get {
                 object obj = ResourceManager.GetObject("clearFiltersIcon", resourceCulture);
@@ -123,6 +133,26 @@ namespace client.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exportItemIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("exportItemIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap importItemIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("importItemIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap inportItemIcon {
             get {
                 object obj = ResourceManager.GetObject("inportItemIcon", resourceCulture);
@@ -136,6 +166,46 @@ namespace client.Properties {
         internal static System.Drawing.Bitmap newItemIcon {
             get {
                 object obj = ResourceManager.GetObject("newItemIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nextPageIcon {
+            get {
+                object obj = ResourceManager.GetObject("nextPageIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nextPageIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("nextPageIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap previousPageIcon {
+            get {
+                object obj = ResourceManager.GetObject("previousPageIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap previousPageIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("previousPageIcon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

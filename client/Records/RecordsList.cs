@@ -2,6 +2,7 @@
 using client.LocalModels;
 using controllers;
 using models.Entries;
+using System.Windows.Forms;
 
 namespace client.Records
 {
@@ -69,15 +70,20 @@ namespace client.Records
 
         private void RecordsList_Load(object sender, EventArgs e)
         {
+            ReloadData();
             RecordsDatagrid.DataSource = recordsBs;
-            SearchGroupBox.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            BindControl([EditRecordButton, RecordsDatagrid, SearchGroupBox, SearchGroupBox, DetailsGroupBox, RecordsDatagrid, NewRecordButton,
+                         DeleteRecordButton], localSettings, ["Enabled"], ["IsSingleOrNone", "IsViewMode"]);
+            
+            /*SearchGroupBox.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
             DetailsGroupBox.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
 
             RecordsDatagrid.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
 
             NewRecordButton.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
             EditRecordButton.DataBindings.Add("Enabled", localSettings, "IsSingleOrNone", false, DataSourceUpdateMode.OnPropertyChanged);
-            DeleteRecordButton.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);
+            DeleteRecordButton.DataBindings.Add("Enabled", localSettings, "IsViewMode", false, DataSourceUpdateMode.OnPropertyChanged);*/
             
             var categoryList = Controller.Records.Categories.GetList(null, true, out _);
             SearchCategoryBox.DataSource = categoryList;
@@ -91,14 +97,36 @@ namespace client.Records
             SearchEntryTypeBox.DisplayMember = EntryEntryTypeBox.DisplayMember = "Name";
             SearchEntryTypeBox.ValueMember = EntryEntryTypeBox.ValueMember = "Id";
 
-            EntryDateBox.DataBindings.Add("Value", recordsBs, "Date");
+            BindControl([EntryDateBox, EntryEntryTypeBox, EntryCategoryTypeBox, DescriptionBox,
+                         ValueBox, ObservationsBox], recordsBs, ["Value", "SelectedValue", "Text"], ["Date", "EntryType", "Category",
+                                                                 "Description", "Value", "Observations"]);
+            /*EntryDateBox.DataBindings.Add("Value", recordsBs, "Date");
             EntryEntryTypeBox.DataBindings.Add("SelectedValue", recordsBs, "EntryType");
             EntryCategoryTypeBox.DataBindings.Add("SelectedValue", recordsBs, "Category");
-            DescriptionBox.DataBindings.Add("Text", recordsBs, "Descriotion");
+            DescriptionBox.DataBindings.Add("Text", recordsBs, "Description");
             ValueBox.DataBindings.Add("Text", recordsBs, "Value", true);
-            ObservationsBox.DataBindings.Add("Text", recordsBs, "Observations");
+            ObservationsBox.DataBindings.Add("Text", recordsBs, "Observations");*/
+        }
 
-            ReloadData();
+        private void BindControl(Control[] controls, object datasource, string[] controlProperties, string[] objectProperties)
+        {
+            var count = Math.Min(controls.Count(), objectProperties.Count());
+            for(int i = 0; i < count; i++)
+            {
+                var property = objectProperties[i] ?? objectProperties.Last();
+                var control = controls[i] ?? controls.Last();
+                
+                foreach(var cProperty in controlProperties)
+                {
+                    var info = control.GetType().GetProperty(cProperty);
+
+                    if (info is not null)
+                    {
+                        control.DataBindings.Add(cProperty, datasource, property, false, DataSourceUpdateMode.OnPropertyChanged);
+                        break;
+                    }
+                }
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

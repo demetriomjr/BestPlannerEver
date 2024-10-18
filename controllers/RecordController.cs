@@ -14,7 +14,7 @@
             catch(Exception ex) 
             {
                 error = ex.Message;
-                return null!;
+                return new()!;
             }
         }
 

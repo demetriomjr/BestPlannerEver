@@ -2,6 +2,7 @@ global using client.LocalControllers;
 global using controllers;
 global using models.BankEntries;
 global using client.Records;
+global using System.Diagnostics;
 
 namespace client
 {

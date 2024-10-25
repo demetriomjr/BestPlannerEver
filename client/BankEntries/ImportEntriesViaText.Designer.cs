@@ -31,7 +31,7 @@
             FlowTabControl = new TabControl();
             tabPage1 = new TabPage();
             groupBox1 = new GroupBox();
-            RawTextBox = new RichTextBox();
+            InputBox = new RichTextBox();
             groupBox2 = new GroupBox();
             CancelButton = new Button();
             panel4 = new Panel();
@@ -40,7 +40,7 @@
             NextTabButton = new Button();
             tabPage2 = new TabPage();
             groupBox4 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            ImportedItemsDatagrid = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -58,7 +58,7 @@
             groupBox2.SuspendLayout();
             tabPage2.SuspendLayout();
             groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ImportedItemsDatagrid).BeginInit();
             groupBox3.SuspendLayout();
             SuspendLayout();
             // 
@@ -87,7 +87,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(RawTextBox);
+            groupBox1.Controls.Add(InputBox);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
@@ -96,14 +96,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Texto original";
             // 
-            // RawTextBox
+            // InputBox
             // 
-            RawTextBox.Dock = DockStyle.Fill;
-            RawTextBox.Location = new Point(3, 19);
-            RawTextBox.Name = "RawTextBox";
-            RawTextBox.Size = new Size(1261, 511);
-            RawTextBox.TabIndex = 0;
-            RawTextBox.Text = "";
+            InputBox.Dock = DockStyle.Fill;
+            InputBox.Location = new Point(3, 19);
+            InputBox.Name = "InputBox";
+            InputBox.Size = new Size(1261, 511);
+            InputBox.TabIndex = 0;
+            InputBox.Text = "";
             // 
             // groupBox2
             // 
@@ -160,6 +160,7 @@
             ClearTextButton.TextAlign = ContentAlignment.BottomLeft;
             ClearTextButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             ClearTextButton.UseVisualStyleBackColor = true;
+            ClearTextButton.Click += ClearTextButton_Click;
             // 
             // panel1
             // 
@@ -184,6 +185,7 @@
             NextTabButton.TextAlign = ContentAlignment.BottomLeft;
             NextTabButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             NextTabButton.UseVisualStyleBackColor = true;
+            NextTabButton.Click += NextTabButton_Click;
             // 
             // tabPage2
             // 
@@ -199,7 +201,7 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(dataGridView1);
+            groupBox4.Controls.Add(ImportedItemsDatagrid);
             groupBox4.Dock = DockStyle.Fill;
             groupBox4.Location = new Point(3, 3);
             groupBox4.Name = "groupBox4";
@@ -208,35 +210,38 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Item convertidos do texto";
             // 
-            // dataGridView1
+            // ImportedItemsDatagrid
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 19);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 5;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1261, 511);
-            dataGridView1.TabIndex = 0;
+            ImportedItemsDatagrid.AllowUserToAddRows = false;
+            ImportedItemsDatagrid.AllowUserToDeleteRows = false;
+            ImportedItemsDatagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ImportedItemsDatagrid.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            ImportedItemsDatagrid.Dock = DockStyle.Fill;
+            ImportedItemsDatagrid.Location = new Point(3, 19);
+            ImportedItemsDatagrid.MultiSelect = false;
+            ImportedItemsDatagrid.Name = "ImportedItemsDatagrid";
+            ImportedItemsDatagrid.RowHeadersWidth = 5;
+            ImportedItemsDatagrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ImportedItemsDatagrid.Size = new Size(1261, 511);
+            ImportedItemsDatagrid.TabIndex = 0;
             // 
             // Column1
             // 
+            Column1.DataPropertyName = "Date";
             Column1.HeaderText = "Data";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            Column2.DataPropertyName = "EntryType";
             Column2.HeaderText = "Tipo";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             // 
             // Column3
             // 
+            Column3.DataPropertyName = "Description";
             Column3.HeaderText = "Descrição";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
@@ -244,6 +249,7 @@
             // 
             // Column4
             // 
+            Column4.DataPropertyName = "CurrencyValue";
             Column4.HeaderText = "Valor";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
@@ -251,6 +257,7 @@
             // Column5
             // 
             Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Column5.DataPropertyName = "Observations";
             Column5.HeaderText = "Observações";
             Column5.Name = "Column5";
             // 
@@ -334,6 +341,7 @@
             SaveButton.TextAlign = ContentAlignment.BottomCenter;
             SaveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
             // ImportEntriesViaText
             // 
@@ -349,7 +357,7 @@
             groupBox2.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ImportedItemsDatagrid).EndInit();
             groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -359,13 +367,13 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private GroupBox groupBox1;
-        private RichTextBox RawTextBox;
+        private RichTextBox InputBox;
         private GroupBox groupBox2;
         private Button ClearTextButton;
         private Panel panel1;
         private Button NextTabButton;
         private GroupBox groupBox4;
-        private DataGridView dataGridView1;
+        private DataGridView ImportedItemsDatagrid;
         private GroupBox groupBox3;
         private Button PreviousButton;
         private Panel panel2;

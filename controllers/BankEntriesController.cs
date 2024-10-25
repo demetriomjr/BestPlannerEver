@@ -98,6 +98,19 @@
             error = "";
             return true;
         }
+        public bool Save(List<BankEntry> list, out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                return Controller.Database.Save(list, out error);
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+        }
         public bool Save(BankEntry entry, out string error)
         {
             try

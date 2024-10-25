@@ -1,3 +1,8 @@
+global using client.LocalControllers;
+global using controllers;
+global using models.BankEntries;
+global using client.Records;
+
 namespace client
 {
     internal static class Program

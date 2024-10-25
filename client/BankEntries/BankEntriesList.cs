@@ -1,8 +1,4 @@
-﻿using client.LocalControllers;
-using controllers;
-using models.BankEntries;
-
-namespace client.Records
+﻿namespace client.Records
 {
     public partial class BankEntriesList : UserControl
     {
@@ -131,7 +127,7 @@ namespace client.Records
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Parent?.Controls.Clear();
+            Parent?.Controls.Remove(this);
             ResetSearch();
         }
 

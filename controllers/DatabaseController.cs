@@ -88,6 +88,12 @@
             error = string.Empty;
             try
             {
+                if(item is BaseModel model)
+                {
+                    var now = DateTime.Now;
+                    model.CreatedAt ??= now;
+                    model.UpdatedAt = now;
+                }
                 return db.GetCollection<T>().Upsert(item);
             }
             catch (Exception ex)
@@ -110,7 +116,10 @@
                         return false;
                     }
 
+                    var now = DateTime.Now;
                     (item as BaseModel)!.IsDeleted = !(item as BaseModel)!.IsDeleted;
+                    (item as BaseModel)!.UpdatedAt = now;
+                    (item as BaseModel)!.DeletedAt = now;
                     return db.GetCollection<T>().Upsert(item);
                 }
                 

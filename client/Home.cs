@@ -1,5 +1,3 @@
-using client.Records;
-
 namespace client
 {
     public partial class Home : Form

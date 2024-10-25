@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace models.BankEntries
+﻿namespace models.BankEntries
 {
     public class BankEntry : BaseModel
     {

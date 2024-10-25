@@ -209,8 +209,9 @@
         private void ImportButton_Click(object sender, EventArgs e)
         {
             Visible = false;
-            if(Parent is Home parent)
-                parent.OpenControl(parent.userControls[nameof(ImportEntriesViaText)]);
+            if(Parent is Panel parentPanel)
+                if(parentPanel.Parent is Home parent)
+                    parent.OpenControl(parent.userControls[nameof(ImportEntriesViaText)]);
         }
     }
 }

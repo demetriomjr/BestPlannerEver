@@ -22,8 +22,8 @@
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Parent!.Controls.Remove(this);
-            Parent.Controls[0].Visible = true;
+            Parent!.Controls[0].Visible = true;
+            Parent.Controls.Remove(this);
         }
 
         private void PreviousButton_Click(object sender, EventArgs e)

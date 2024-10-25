@@ -1,17 +1,15 @@
-﻿using models.BankEntries;
-
-namespace controllers
+﻿namespace controllers
 {
     public class BankEntriesCategoryController
     {
-        public List<EntryCategory> GetList(Func<EntryCategory, bool>? predicate, bool AllOption, out string error)
+        public List<EntryCategory> GetList(Func<EntryCategory, bool>? predicate, bool HasAllOptions, out string error)
         {
             try
             {
                 error = string.Empty;
                 var list = Controller.Database.Load(predicate, out error);
 
-                if(AllOption)
+                if(HasAllOptions)
                     list.Insert(0, new EntryCategory(0, "Todas"));
                 return list;
             }

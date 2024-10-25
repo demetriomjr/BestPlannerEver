@@ -1,8 +1,4 @@
-﻿using models.BankEntries;
-using System.Globalization;
-using System.Text.RegularExpressions;
-
-namespace controllers
+﻿namespace controllers
 {
     public class BankEntriesController
     {
@@ -83,7 +79,6 @@ namespace controllers
         ];
 
         public BankEntriesCategoryController Categories = new();
-        public BankEntriesResourceController Resources = new();
 
         public List<BankEntry> GetList(Func<BankEntry, bool>? predicate, out string error)
         {
@@ -141,7 +136,7 @@ namespace controllers
 
                 foreach (var line in lines)
                 {
-                    if (line.Length <= 2)
+                    if (line.Length <= 2 || !Regex.Match(line, @"\s(C|D)\s").Success)
                         continue;
 
                     string formattedLine = line;

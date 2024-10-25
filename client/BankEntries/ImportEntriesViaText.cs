@@ -19,5 +19,16 @@
 
             FlowTabControl.SelectedIndex += 1;
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Parent!.Controls.Remove(this);
+            Parent.Controls[0].Visible = true;
+        }
+
+        private void PreviousButton_Click(object sender, EventArgs e)
+        {
+            FlowTabControl.SelectedIndex -= 1;
+        }
     }
 }

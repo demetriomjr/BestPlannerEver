@@ -30,36 +30,36 @@
         {
             FlowTabControl = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            groupBox1 = new GroupBox();
+            RawTextBox = new RichTextBox();
             groupBox2 = new GroupBox();
+            CancelButton = new Button();
+            panel4 = new Panel();
             ClearTextButton = new Button();
             panel1 = new Panel();
             NextTabButton = new Button();
-            groupBox1 = new GroupBox();
-            RawTextBox = new RichTextBox();
-            groupBox3 = new GroupBox();
-            PreviousButton = new Button();
-            panel2 = new Panel();
-            SaveButton = new Button();
+            tabPage2 = new TabPage();
             groupBox4 = new GroupBox();
             dataGridView1 = new DataGridView();
-            Cancel2Button = new Button();
-            panel3 = new Panel();
-            CancelButton = new Button();
-            panel4 = new Panel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
+            groupBox3 = new GroupBox();
+            Cancel2Button = new Button();
+            panel3 = new Panel();
+            PreviousButton = new Button();
+            panel2 = new Panel();
+            SaveButton = new Button();
             FlowTabControl.SuspendLayout();
             tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            groupBox3.SuspendLayout();
+            groupBox2.SuspendLayout();
+            tabPage2.SuspendLayout();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // FlowTabControl
@@ -85,17 +85,25 @@
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // groupBox1
             // 
-            tabPage2.Controls.Add(groupBox4);
-            tabPage2.Controls.Add(groupBox3);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1273, 600);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            groupBox1.Controls.Add(RawTextBox);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Location = new Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1267, 533);
+            groupBox1.TabIndex = 5;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Texto original";
+            // 
+            // RawTextBox
+            // 
+            RawTextBox.Dock = DockStyle.Fill;
+            RawTextBox.Location = new Point(3, 19);
+            RawTextBox.Name = "RawTextBox";
+            RawTextBox.Size = new Size(1261, 511);
+            RawTextBox.TabIndex = 0;
+            RawTextBox.Text = "";
             // 
             // groupBox2
             // 
@@ -111,6 +119,31 @@
             groupBox2.Size = new Size(1267, 61);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
+            // 
+            // CancelButton
+            // 
+            CancelButton.Dock = DockStyle.Right;
+            CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            CancelButton.Image = Properties.Resources.closeIcon;
+            CancelButton.ImageAlign = ContentAlignment.TopLeft;
+            CancelButton.Location = new Point(871, 19);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Padding = new Padding(10, 0, 0, 5);
+            CancelButton.Size = new Size(122, 32);
+            CancelButton.TabIndex = 16;
+            CancelButton.Text = "Cancelar";
+            CancelButton.TextAlign = ContentAlignment.BottomLeft;
+            CancelButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
+            // 
+            // panel4
+            // 
+            panel4.Dock = DockStyle.Right;
+            panel4.Location = new Point(993, 19);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(10, 32);
+            panel4.TabIndex = 15;
             // 
             // ClearTextButton
             // 
@@ -152,80 +185,17 @@
             NextTabButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             NextTabButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // tabPage2
             // 
-            groupBox1.Controls.Add(RawTextBox);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(3, 3);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1267, 533);
-            groupBox1.TabIndex = 5;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Texto original";
-            // 
-            // RawTextBox
-            // 
-            RawTextBox.Dock = DockStyle.Fill;
-            RawTextBox.Location = new Point(3, 19);
-            RawTextBox.Name = "RawTextBox";
-            RawTextBox.Size = new Size(1261, 511);
-            RawTextBox.TabIndex = 0;
-            RawTextBox.Text = "";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(Cancel2Button);
-            groupBox3.Controls.Add(panel3);
-            groupBox3.Controls.Add(PreviousButton);
-            groupBox3.Controls.Add(panel2);
-            groupBox3.Controls.Add(SaveButton);
-            groupBox3.Dock = DockStyle.Bottom;
-            groupBox3.Location = new Point(3, 536);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(25, 3, 10, 10);
-            groupBox3.Size = new Size(1267, 61);
-            groupBox3.TabIndex = 5;
-            groupBox3.TabStop = false;
-            // 
-            // PreviousButton
-            // 
-            PreviousButton.Dock = DockStyle.Right;
-            PreviousButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            PreviousButton.Image = Properties.Resources.previousPageIcon2;
-            PreviousButton.ImageAlign = ContentAlignment.TopLeft;
-            PreviousButton.Location = new Point(1003, 19);
-            PreviousButton.Name = "PreviousButton";
-            PreviousButton.Padding = new Padding(10, 0, 0, 5);
-            PreviousButton.Size = new Size(122, 32);
-            PreviousButton.TabIndex = 12;
-            PreviousButton.Text = "Voltar";
-            PreviousButton.TextAlign = ContentAlignment.BottomLeft;
-            PreviousButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            PreviousButton.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1125, 19);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(10, 32);
-            panel2.TabIndex = 11;
-            // 
-            // SaveButton
-            // 
-            SaveButton.Dock = DockStyle.Right;
-            SaveButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            SaveButton.Image = Properties.Resources.saveItemIcon;
-            SaveButton.ImageAlign = ContentAlignment.TopLeft;
-            SaveButton.Location = new Point(1135, 19);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Padding = new Padding(10, 0, 0, 5);
-            SaveButton.Size = new Size(122, 32);
-            SaveButton.TabIndex = 10;
-            SaveButton.Text = "Salvar";
-            SaveButton.TextAlign = ContentAlignment.BottomCenter;
-            SaveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            SaveButton.UseVisualStyleBackColor = true;
+            tabPage2.Controls.Add(groupBox4);
+            tabPage2.Controls.Add(groupBox3);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1273, 600);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -252,54 +222,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1261, 511);
             dataGridView1.TabIndex = 0;
-            // 
-            // Cancel2Button
-            // 
-            Cancel2Button.Dock = DockStyle.Right;
-            Cancel2Button.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            Cancel2Button.Image = Properties.Resources.closeIcon;
-            Cancel2Button.ImageAlign = ContentAlignment.TopLeft;
-            Cancel2Button.Location = new Point(871, 19);
-            Cancel2Button.Name = "Cancel2Button";
-            Cancel2Button.Padding = new Padding(10, 0, 0, 5);
-            Cancel2Button.Size = new Size(122, 32);
-            Cancel2Button.TabIndex = 14;
-            Cancel2Button.Text = "Cancelar";
-            Cancel2Button.TextAlign = ContentAlignment.BottomLeft;
-            Cancel2Button.TextImageRelation = TextImageRelation.ImageBeforeText;
-            Cancel2Button.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(993, 19);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(10, 32);
-            panel3.TabIndex = 13;
-            // 
-            // CancelButton
-            // 
-            CancelButton.Dock = DockStyle.Right;
-            CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CancelButton.Image = Properties.Resources.closeIcon;
-            CancelButton.ImageAlign = ContentAlignment.TopLeft;
-            CancelButton.Location = new Point(871, 19);
-            CancelButton.Name = "CancelButton";
-            CancelButton.Padding = new Padding(10, 0, 0, 5);
-            CancelButton.Size = new Size(122, 32);
-            CancelButton.TabIndex = 16;
-            CancelButton.Text = "Cancelar";
-            CancelButton.TextAlign = ContentAlignment.BottomLeft;
-            CancelButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            CancelButton.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(993, 19);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(10, 32);
-            panel4.TabIndex = 15;
             // 
             // Column1
             // 
@@ -332,6 +254,87 @@
             Column5.HeaderText = "Observações";
             Column5.Name = "Column5";
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(Cancel2Button);
+            groupBox3.Controls.Add(panel3);
+            groupBox3.Controls.Add(PreviousButton);
+            groupBox3.Controls.Add(panel2);
+            groupBox3.Controls.Add(SaveButton);
+            groupBox3.Dock = DockStyle.Bottom;
+            groupBox3.Location = new Point(3, 536);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new Padding(25, 3, 10, 10);
+            groupBox3.Size = new Size(1267, 61);
+            groupBox3.TabIndex = 5;
+            groupBox3.TabStop = false;
+            // 
+            // Cancel2Button
+            // 
+            Cancel2Button.Dock = DockStyle.Right;
+            Cancel2Button.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            Cancel2Button.Image = Properties.Resources.closeIcon;
+            Cancel2Button.ImageAlign = ContentAlignment.TopLeft;
+            Cancel2Button.Location = new Point(871, 19);
+            Cancel2Button.Name = "Cancel2Button";
+            Cancel2Button.Padding = new Padding(10, 0, 0, 5);
+            Cancel2Button.Size = new Size(122, 32);
+            Cancel2Button.TabIndex = 14;
+            Cancel2Button.Text = "Cancelar";
+            Cancel2Button.TextAlign = ContentAlignment.BottomLeft;
+            Cancel2Button.TextImageRelation = TextImageRelation.ImageBeforeText;
+            Cancel2Button.UseVisualStyleBackColor = true;
+            Cancel2Button.Click += CancelButton_Click;
+            // 
+            // panel3
+            // 
+            panel3.Dock = DockStyle.Right;
+            panel3.Location = new Point(993, 19);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(10, 32);
+            panel3.TabIndex = 13;
+            // 
+            // PreviousButton
+            // 
+            PreviousButton.Dock = DockStyle.Right;
+            PreviousButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            PreviousButton.Image = Properties.Resources.previousPageIcon2;
+            PreviousButton.ImageAlign = ContentAlignment.TopLeft;
+            PreviousButton.Location = new Point(1003, 19);
+            PreviousButton.Name = "PreviousButton";
+            PreviousButton.Padding = new Padding(10, 0, 0, 5);
+            PreviousButton.Size = new Size(122, 32);
+            PreviousButton.TabIndex = 12;
+            PreviousButton.Text = "Voltar";
+            PreviousButton.TextAlign = ContentAlignment.BottomLeft;
+            PreviousButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            PreviousButton.UseVisualStyleBackColor = true;
+            PreviousButton.Click += PreviousButton_Click;
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(1125, 19);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(10, 32);
+            panel2.TabIndex = 11;
+            // 
+            // SaveButton
+            // 
+            SaveButton.Dock = DockStyle.Right;
+            SaveButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            SaveButton.Image = Properties.Resources.saveItemIcon;
+            SaveButton.ImageAlign = ContentAlignment.TopLeft;
+            SaveButton.Location = new Point(1135, 19);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Padding = new Padding(10, 0, 0, 5);
+            SaveButton.Size = new Size(122, 32);
+            SaveButton.TabIndex = 10;
+            SaveButton.Text = "Salvar";
+            SaveButton.TextAlign = ContentAlignment.BottomCenter;
+            SaveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            SaveButton.UseVisualStyleBackColor = true;
+            // 
             // ImportEntriesViaText
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -342,12 +345,12 @@
             Load += ImportEntriesViaText_Load;
             FlowTabControl.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 

@@ -159,6 +159,7 @@
             ImportButton.Text = "Importar";
             ImportButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             ImportButton.UseVisualStyleBackColor = true;
+            ImportButton.Click += ImportButton_Click;
             // 
             // panel15
             // 

@@ -10,7 +10,7 @@
                 var list = Controller.Database.Load(predicate, out error);
 
                 if(HasAllOptions)
-                    list.Insert(0, new EntryCategory(0, "Todas"));
+                    list.Insert(0, new EntryCategory(Guid.Empty, "Todas"));
                 return list;
             }
             catch (Exception ex)

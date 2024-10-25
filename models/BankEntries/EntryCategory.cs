@@ -9,7 +9,7 @@
 
         }
 
-        public EntryCategory(int id, string name) : base()
+        public EntryCategory(Guid id, string name) : base()
         {
             Name = name;
             Id = id;

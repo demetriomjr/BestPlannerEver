@@ -75,14 +75,14 @@ namespace client.Records
         {
             ReloadData();
             RecordsDatagrid.DataSource = recordsBs;
-            
+
             var categoryList = Controller.BankEntries.Categories.GetList(null, true, out _);
             SearchCategoryBox.DataSource = categoryList;
             EntryCategoryTypeBox.DataSource = categoryList;
             SearchCategoryBox.DisplayMember = EntryCategoryTypeBox.DisplayMember = "Name";
             SearchCategoryBox.ValueMember = EntryCategoryTypeBox.ValueMember = "Id";
 
-            var entryTypeList = Controller.BankEntries.Resources.EntryTypes(true);
+            var entryTypeList = Controller.Resources.EntryTypes(true);
             SearchEntryTypeBox.DataSource = entryTypeList;
             EntryEntryTypeBox.DataSource = entryTypeList;
             SearchEntryTypeBox.DisplayMember = EntryEntryTypeBox.DisplayMember = "Name";
@@ -98,12 +98,12 @@ namespace client.Records
         private void BindControl(Control[] controls, object datasource, string[] controlProperties, string[] objectProperties)
         {
             var count = Math.Min(controls.Count(), objectProperties.Count());
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 var property = objectProperties[i] ?? objectProperties.Last();
                 var control = controls[i] ?? controls.Last();
-                
-                foreach(var cProperty in controlProperties)
+
+                foreach (var cProperty in controlProperties)
                 {
                     var info = control.GetType().GetProperty(cProperty);
 
@@ -122,7 +122,7 @@ namespace client.Records
             {
                 if (control.Name.Equals(EditRecordButton.Name))
                     control.Enabled = localSettings.IsSingleOrNone;
-                else if(control.Name.Equals(DetailsGroupBox.Name))
+                else if (control.Name.Equals(DetailsGroupBox.Name))
                     control.Enabled = !localSettings.IsViewMode;
                 else control.Enabled = localSettings.IsViewMode;
                 control.Refresh();
@@ -167,7 +167,7 @@ namespace client.Records
 
             var item = RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry;
 
-            if(!Controller.BankEntries.DeleteItem(item!.Id, out var error))
+            if (!Controller.BankEntries.DeleteItem(item!.Id, out var error))
             {
                 MessageBox.Show(error);
                 return;
@@ -190,7 +190,7 @@ namespace client.Records
         private void DetailSaveButton_Click(object sender, EventArgs e)
         {
             var item = RecordsDatagrid.CurrentRow!.DataBoundItem as BankEntry;
-            if(!Controller.BankEntries.Save(item!, out string error))
+            if (!Controller.BankEntries.Save(item!, out string error))
             {
                 MessageBox.Show(error);
                 return;
@@ -208,6 +208,13 @@ namespace client.Records
             Filter();
             (localSettings as Settings)!.IsViewMode = false;
             UpdateStateControls();
+        }
+
+        private void ImportButton_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+            if(Parent is Home parent)
+                parent.OpenControl(parent.userControls[nameof(ImportEntriesViaText)]);
         }
     }
 }

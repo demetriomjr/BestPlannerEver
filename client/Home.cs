@@ -4,7 +4,7 @@ namespace client
 {
     public partial class Home : Form
     {
-        private Dictionary<string, UserControl> controls = new Dictionary<string, UserControl>();
+        public Dictionary<string, UserControl> userControls = new Dictionary<string, UserControl>();
 
         public Home()
         {
@@ -13,9 +13,10 @@ namespace client
 
         private void Home_Load(object sender, EventArgs e)
         {
-            controls.Add(nameof(BankEntriesList), new BankEntriesList());
+            userControls.Add(nameof(BankEntriesList), new BankEntriesList());
+            userControls.Add(nameof(ImportEntriesViaText), new ImportEntriesViaText());
 
-            foreach (var control in controls.Values)
+            foreach (var control in userControls.Values)
             {
                 control.BackColor = SystemColors.Control;
                 control.Dock = DockStyle.Fill;
@@ -23,9 +24,8 @@ namespace client
 
         }
 
-        private void OpenControl(UserControl control)
+        public void OpenControl(UserControl control)
         {
-            ContainerPanel.Controls.Clear();
             control.Visible = !control.Visible;
             ContainerPanel.Controls.Add(control);
             control.Visible = !control.Visible;
@@ -42,7 +42,8 @@ namespace client
         }
         private void BankEntriesButton_Click(object sender, EventArgs e)
         {
-            OpenControl(controls[nameof(BankEntriesList)]);
+            ContainerPanel.Controls.Clear();
+            OpenControl(userControls[nameof(BankEntriesList)]);
         }
     }
 }
